@@ -112,7 +112,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url(https://iw233.cn/api.php?sort=mp);
+            /* background-image: url(https://iw233.cn/api.php?sort=mp); */
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center 0;
@@ -189,44 +189,79 @@
         video.addEventListener("click", videoClick);
 
         $('#decline-button').on('click', function() {
+            alert('一等！');
             $.getJSON('https://ipinfo.io/json', function(data) {
-                console.log(JSON.stringify(data, null, 2));
                 var city = String(data['city']).toLowerCase();
-                var alertStr;
+                var username;
                 switch (city) {
                     case 'singapore' : {
-                        alertStr = '你一定是老咖，咖帅哥你好';
+                        username = '咖帅哥';
                         break;
                     }
                     case 'shanghai' : {
-                        alertStr = '老艾别来沾边';
+                        username = '老艾';
                         break;
                     }
                     case 'chongqing' : 
                     case 'xian': {
-                        alertStr = 'Moco💗';
+                        username = 'Moco💗';
                         break;
                     }
                     case 'wenzhou' : {
-                        alertStr = '细胞男神你好';
+                        username = '细胞';
                         break;
                     }
                     case 'qingdao' : {
-                        alertStr = '白老六是你吗';
-                        break;
-                    }
-                    case 'beijing' : {
-                        alertStr = '老有老有老有🈶️';
+                        username = '白老六';
                         break;
                     }
                     default: {
-                        alertStr = '你谁？'
+                        username = '你谁？'
                     }
                 };
                 if (String(data['region']).toLowerCase() === 'henan') {
-                    alertStr = '老有老有老有🈶️';
+                    username = '老有';
                 }
-                alert(alertStr);
+                var randomIndex = Math.floor(Math.random() * 7);
+                var alertString;
+                switch (randomIndex) {
+                    case 0: {
+                        alertString = `你一定是${username}吧？${username}你好！`;
+                        break;
+                    }
+                    case 1: {
+                        alertString = `${username}${username}${username}${username}${username}${username}`;
+                        break;
+                    }
+                    case 2: {
+                        alertString = `${username}别来沾边`;
+                        break;
+                    }
+                    case 3: {
+                        alertString = `${username}在这干啥呢？快去唱歌！`;
+                        break;
+                    }
+                    case 4: {
+                        alertString = `${username}快点去录好听的歌！`;
+                        break;
+                    }
+                    case 5: {
+                        alertString = `我猜你是${username}`;
+                        break;
+                    }
+                    case 6: {
+                        alertString = `在忙啥呢${username}`;
+                        break;
+                    }
+                    case 7: {
+                        alertString = `${username}来玩呀`;
+                        break;
+                    }
+                    default: {
+                        alertString = '老六！'
+                    }
+                }
+                alert(alertString);
             });
         });
     </script>
