@@ -149,7 +149,7 @@
                         18</b> and we need to confirm your age.</p>
                 <div class="overlay-buttons-wrapper">
                     <div id="accept-button" class="overlay-button">已满18岁</div>
-                    <div id="decline-button" class="overlay-button">未满18岁</div>
+                    <div id="decline-button" class="overlay-button" name="decline-button">未满18岁</div>
                 </div>
             </div>
         </div>
@@ -159,6 +159,8 @@
             loop="loop"></video>
         <img src="https://count.getloli.com/get/@rickroll" style="display: none;">
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">
         const video = document.getElementById("video");
         const overlay = document.getElementById("overlay");
@@ -175,19 +177,6 @@
             video.play();
             videoClick();
         }
-        var textArray = [
-            '艾老六，信你个鬼',
-            '白老六，信你个鬼',
-            '细胞儿，信你个鬼',
-            '有老六，信你个鬼',
-            '猫老六，信你个鬼'
-        ];
-        
-        function buttonClick2(event) {
-            var randomIndex = Math.floor(Math.random() * textArray.length); 
-            var randomElement = textArray[randomIndex];
-            alert(randomElement);
-        }
         function videoClick(event) {
             if (event) event.preventDefault();
             // if not fullscreen
@@ -198,7 +187,45 @@
             else if (documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
         }
         acceptButton.addEventListener("click", buttonClick1);
-        declineButton.addEventListener("click", buttonClick2);
         video.addEventListener("click", videoClick);
+
+        $('#decline-button').on('click', function() {
+            $.getJSON('https://ipinfo.io/json', function(data) {
+                console.log(JSON.stringify(data, null, 2));
+                var city = String(data['city']).toLowerCase();
+                var alertStr;
+                switch (city) {
+                    case 'singapore' : {
+                        alertStr = '咖帅哥你好';
+                        break;
+                    }
+                    case 'shanghai' : {
+                        alertStr = '老艾别来沾边';
+                        break;
+                    }
+                    case 'chongqing' : 
+                    case 'xian': {
+                        alertStr = 'Moco💗';
+                        break;
+                    }
+                    case 'wenzhou' : {
+                        alertStr = '细胞男神你好';
+                        break;
+                    }
+                    case 'qingdao' : {
+                        alertStr = '白老六是你吗';
+                        break;
+                    }
+                    case 'beijing' : {
+                        alertStr = '老有老有老有🈶️';
+                        break;
+                    }
+                    default: {
+                        alertStr = '你谁？'
+                    }
+                };
+                alert(alertStr);
+            });
+        });
     </script>
 </body>
