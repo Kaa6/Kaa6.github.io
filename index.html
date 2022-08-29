@@ -189,7 +189,6 @@
         video.addEventListener("click", videoClick);
 
         $('#decline-button').on('click', function() {
-            alert('一等！');
             $.getJSON('https://ipinfo.io/json', function(data) {
                 var city = String(data['city']).toLowerCase();
                 var username;
