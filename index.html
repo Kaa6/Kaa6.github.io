@@ -175,8 +175,17 @@
             video.play();
             videoClick();
         }
+        var textArray = [
+            '艾老六，信你个鬼',
+            '白老六，信你个鬼',
+            '细胞儿，信你个鬼',
+            '有老六，信你个鬼',
+            '猫老六，信你个鬼'
+        ];
+        var randomIndex = Math.floor(Math.random() * textArray.length); 
+        var randomElement = textArray[randomIndex];
         function buttonClick2(event) {
-            alert('艾老六，信你个鬼');
+            alert(randomElement);
         }
         function videoClick(event) {
             if (event) event.preventDefault();
