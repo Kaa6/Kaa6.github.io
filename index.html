@@ -216,7 +216,8 @@
                         break;
                     }
                     default: {
-                        username = '你谁？'
+                        alert('你谁？');
+                        return;
                     }
                 };
                 if (String(data['region']).toLowerCase() === 'henan') {
@@ -258,7 +259,7 @@
                         break;
                     }
                     default: {
-                        alertString = '老六！'
+                        return;
                     }
                 }
                 alert(alertString);
