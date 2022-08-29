@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>❤️站❤️长❤️推❤️荐❤️</title>
+    <title>老卡不是老六</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-190316399-3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -143,13 +143,13 @@
     <div id="overlay" class="overlay">
         <div class="text-bg">
             <div class="overlay-body">
-                <p class="overlay-title">您是否已满18岁</p>
+                <!-- <p class="overlay-title">您是否已满18岁</p>
                 <p class="overlay-description">以下内容可能不适合<b>未满18岁</b>的人群观看，我们需要确认您的年龄。</p>
                 <p class="overlay-description">The following may not be suitable for people <b>under the age of
-                        18</b> and we need to confirm your age.</p>
+                        18</b> and we need to confirm your age.</p> -->
                 <div class="overlay-buttons-wrapper">
-                    <div id="accept-button" class="overlay-button">已满18岁</div>
-                    <div id="decline-button" class="overlay-button" name="decline-button">未满18岁</div>
+                    <div id="accept-button" class="overlay-button">我要看视频</div>
+                    <div id="decline-button" class="overlay-button" name="decline-button">神秘按钮</div>
                 </div>
             </div>
         </div>
@@ -157,14 +157,13 @@
     <div class="scare">
         <video id="video" class="video" src="Chao.mov"
             loop="loop"></video>
-        <img src="https://count.getloli.com/get/@rickroll" style="display: none;">
+        <!-- <img src="https://count.getloli.com/get/@rickroll" style="display: none;"> -->
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">
         const video = document.getElementById("video");
         const overlay = document.getElementById("overlay");
-        const declineButton = document.getElementById("decline-button");
         const acceptButton = document.getElementById("accept-button");
         let hasClicked;
         window.onbeforeunload = function () {
@@ -196,7 +195,7 @@
                 var alertStr;
                 switch (city) {
                     case 'singapore' : {
-                        alertStr = '咖帅哥你好';
+                        alertStr = '你一定是老咖，咖帅哥你好';
                         break;
                     }
                     case 'shanghai' : {
@@ -224,6 +223,9 @@
                         alertStr = '你谁？'
                     }
                 };
+                if (String(data['region']).toLowerCase() === 'henan') {
+                    alertStr = '老有老有老有🈶️';
+                }
                 alert(alertStr);
             });
         });
